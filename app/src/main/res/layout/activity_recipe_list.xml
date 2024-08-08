@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:padding="16dp">
 
     <Button
-        android:id="@+id/btn_view_recipes"
+        android:id="@+id/btn_soups"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View Recipes"
-        android:layout_marginBottom="16dp"/>
+        android:text="Soups" />
 
     <Button
-        android:id="@+id/btn_add_user_recipe"
+        android:id="@+id/btn_main_courses"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add User Recipe"
-        android:layout_marginBottom="16dp"/>
+        android:text="Main Courses" />
 
     <Button
-        android:id="@+id/btn_view_user_recipes"
+        android:id="@+id/btn_desserts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View User Recipes" />
+        android:text="Desserts" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

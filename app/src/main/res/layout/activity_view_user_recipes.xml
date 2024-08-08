@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:padding="16dp">
 
-    <Button
-        android:id="@+id/btn_view_recipes"
+    <EditText
+        android:id="@+id/et_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View Recipes"
-        android:layout_marginBottom="16dp"/>
-
-    <Button
-        android:id="@+id/btn_add_user_recipe"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add User Recipe"
-        android:layout_marginBottom="16dp"/>
+        android:hint="Date (yyyy-MM-dd)"
+        android:inputType="date"/>
 
     <Button
         android:id="@+id/btn_view_user_recipes"
@@ -26,4 +18,8 @@
         android:layout_height="wrap_content"
         android:text="View User Recipes" />
 
+    <ListView
+        android:id="@+id/lv_user_recipes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

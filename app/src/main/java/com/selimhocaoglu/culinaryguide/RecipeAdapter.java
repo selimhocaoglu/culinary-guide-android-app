@@ -13,10 +13,16 @@ import java.util.List;
 
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder> {
 
-    private List<Recipe> recipes;
+    private List<Recipe> recipeList;
+    private OnItemClickListener listener;
 
-    public RecipeAdapter(List<Recipe> recipes) {
-        this.recipes = recipes;
+    public interface OnItemClickListener {
+        void onItemClick(Recipe recipe);
+    }
+
+    public RecipeAdapter(List<Recipe> recipeList, OnItemClickListener listener) {
+        this.recipeList = recipeList;
+        this.listener = listener;
     }
 
     @NonNull
@@ -28,29 +34,27 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
 
     @Override
     public void onBindViewHolder(@NonNull RecipeViewHolder holder, int position) {
-        Recipe recipe = recipes.get(position);
+        Recipe recipe = recipeList.get(position);
         holder.nameTextView.setText(recipe.getName());
-        holder.ingredientsTextView.setText(recipe.getIngredients());
-        holder.instructionsTextView.setText(recipe.getInstructions());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onItemClick(recipe);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return recipes.size();
+        return recipeList.size();
     }
 
-    public class RecipeViewHolder extends RecyclerView.ViewHolder {
-
-        TextView nameTextView;
-        TextView ingredientsTextView;
-        TextView instructionsTextView;
+    public static class RecipeViewHolder extends RecyclerView.ViewHolder {
+        public TextView nameTextView;
 
         public RecipeViewHolder(@NonNull View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.nameTextView);
-            ingredientsTextView = itemView.findViewById(R.id.ingredientsTextView);
-            instructionsTextView = itemView.findViewById(R.id.instructionsTextView);
         }
     }
 }
-
