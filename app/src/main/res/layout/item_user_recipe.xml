@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:padding="8dp">
 
     <TextView
-        android:id="@+id/tv_recipe_id"
+        android:id="@+id/recipeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"/>
+        android:textSize="18sp"
+        android:textColor="#000"
+        android:text="Recipe Title" />
 
     <TextView
-        android:id="@+id/tv_meal_type"
+        android:id="@+id/recipeCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"/>
+        android:layout_below="@id/recipeTitle"
+        android:textSize="14sp"
+        android:textColor="#666"
+        android:text="Recipe Category" />
 
     <TextView
-        android:id="@+id/tv_date"
+        android:id="@+id/recipeDateMealType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"/>
-</LinearLayout>
+        android:layout_below="@id/recipeCategory"
+        android:textSize="12sp"
+        android:textColor="#999"
+        android:text="Date &amp; Meal Type" />
+
+</RelativeLayout>

@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.selimhocaoglu.culinaryguide.login.LoginActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button btnViewRecipes;
@@ -15,6 +17,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Kullanıcı giriş yapmış mı kontrol ediyoruz
+        if (UserSessionManager.getInstance().getCurrentUser() == null) {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish(); // Mevcut aktiviteyi kapat
+            return;
+        }
+
         setContentView(R.layout.activity_main);
 
         btnViewRecipes = findViewById(R.id.btn_view_recipes);

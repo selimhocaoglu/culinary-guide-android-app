@@ -12,6 +12,7 @@ import com.selimhocaoglu.culinaryguide.ApiClient;
 import com.selimhocaoglu.culinaryguide.ApiService;
 import com.selimhocaoglu.culinaryguide.MainActivity;
 import com.selimhocaoglu.culinaryguide.R;
+import com.selimhocaoglu.culinaryguide.UserSessionManager;
 import com.selimhocaoglu.culinaryguide.model.User;
 
 import retrofit2.Call;
@@ -54,6 +55,10 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 if (response.isSuccessful()) {
+                    User loggedInUser = response.body();
+
+                    // Kullanıcıyı UserSessionManager'a kaydediyoruz
+                    UserSessionManager.getInstance().setCurrentUser(loggedInUser);
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();

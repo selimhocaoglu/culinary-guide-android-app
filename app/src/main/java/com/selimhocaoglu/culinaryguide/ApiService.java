@@ -29,7 +29,7 @@ public interface ApiService {
     Call<UserRecipe> addUserRecipe(@Body UserRecipe userRecipe);
 
     @GET("/user-recipes/{userId}")
-    Call<List<UserRecipe>> getUserRecipes(@Path("userId") Long userId);
+    Call<List<UserRecipe>> getUserRecipesByUserId(@Path("userId") Long userId);
 
     @GET("/user-recipes/{userId}/date")
     Call<List<UserRecipe>> getUserRecipesByDate(@Path("userId") Long userId, @Query("date") String date);
